@@ -17,16 +17,13 @@ module Double
       @name = name
     end
 
-    def _
-      @_ ||= ::Kernel.const_get @name
-    end
-
     def method_missing(mth, *args, &blk)
-      if _.respond_to? mth
+      @klass ||= ::Kernel.const_get @name
+      if @klass.respond_to? mth
         (class << self; self; end).instance_eval do
-          def_delegator :@_, mth
+          def_delegator :@klass, mth
         end
-        @_.send mth, *args, &blk
+        @klass.send mth, *args, &blk
       else
         super
       end
