@@ -1,5 +1,7 @@
 # Double
 
+[![travis][status]][travis]
+
 ![repliee][repliee]
 
 ## Description
@@ -17,5 +19,7 @@ class Foo
 end
 ```
 
+[status]: https://secure.travis-ci.org/hakanensari/double.png
+[travis]: http://travis-ci.org/hakanensari/double
 [uncanny]: http://www-rohan.sdsu.edu/~amtower/uncanny.html
 [repliee]: http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Repliee_Q2.jpg/344px-Repliee_Q2.jpg
