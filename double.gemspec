@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = 'double'
   gem.require_paths = ['lib']
   gem.version       = Double::VERSION
+
+  gem.add_development_dependency 'rake'
 end
