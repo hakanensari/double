@@ -4,7 +4,7 @@ require 'forwardable'
 unless defined? BasicObject
   class BasicObject
     instance_methods.each do |mth|
-      undef_method m unless mth =~ /__/
+      undef_method mth unless mth =~ /__/
     end
   end
 end
