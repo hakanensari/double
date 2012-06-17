@@ -1,6 +1,5 @@
 require 'test/unit'
-require 'pry'
-require File.expand_path '../lib/double', File.dirname(__FILE__)
+require 'double'
 
 module Foo
   class << self
