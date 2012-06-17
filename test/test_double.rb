@@ -33,7 +33,7 @@ class TestDouble < Test::Unit::TestCase
   end
 
   def test_memoize
-    Foo.double.instance_eval { def self.method_missing(*args); 2; end }
+    Double::Klass.class_eval { def method_missing(*args); 2; end }
     assert_equal 1, Foo.double.baz
     assert_equal 2, Foo.double.qux
   end
