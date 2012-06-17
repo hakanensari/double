@@ -19,7 +19,7 @@ class TestDouble < Test::Unit::TestCase
       Foo.double.baz
     end
 
-    Kernel.const_set :Bar, Class.new
+    Kernel.const_set :Bar, Module.new
     assert_raise NoMethodError do
       Bar.baz
     end
@@ -30,12 +30,6 @@ class TestDouble < Test::Unit::TestCase
     Bar.class_eval { def self.baz; 1; end }
     assert_equal 1, Bar.baz
     assert_equal 1, Foo.double.baz
-
-    2.times do
-      assert_raise ArgumentError do
-        Foo.double.new 'bar'
-      end
-    end
   end
 
   def test_memoize

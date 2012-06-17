@@ -20,11 +20,10 @@ module Double
     def method_missing(mth, *args, &blk)
       @klass ||= ::Kernel.const_get @name
       if @klass.respond_to? mth
-        res = @klass.send mth, *args, &blk
         (class << self; self; end).instance_eval do
           def_delegator :@klass, mth
         end
-        res
+        @klass.send mth, *args, &blk
       else
         super
       end
