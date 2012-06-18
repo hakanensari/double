@@ -15,9 +15,10 @@ class TestDouble < Test::Unit::TestCase
 
     Foo.extend Double
     Foo.class_eval 'self.double = Bar'
-    assert_raise NameError do
+    e = assert_raise NameError do
       Foo.double.baz
     end
+    assert_equal 'uninitialized constant Bar', e.message
 
     Kernel.const_set :Bar, Module.new
     assert_raise NoMethodError do

@@ -18,7 +18,7 @@ module Double
     end
 
     def method_missing(mth, *args, &blk)
-      @klass ||= ::Kernel.const_get @name
+      @klass ||= ::Kernel.eval "::#{@name}"
       if @klass.respond_to? mth
         (class << self; self; end).instance_eval do
           def_delegator :@klass, mth
