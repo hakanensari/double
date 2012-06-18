@@ -6,16 +6,17 @@
 
 ## Description
 
-Something can be [familiar, yet foreign at once][uncanny]—particularly when metaprogramming.
+Something can be [familiar, yet foreign at once][uncanny].
 
-**Double** allows you to use a constant even before it is defined.
+**Double** allows you to use a constant before it is defined when
+metaprogramming.
 
 ## Usage
 
 ```ruby
 class Foo
   extend Double
-  Bar
+  Bar # nothing raised
 end
 ```
 
