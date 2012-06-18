@@ -18,7 +18,7 @@ class TestDouble < Test::Unit::TestCase
     e = assert_raise NameError do
       Foo.double.baz
     end
-    assert_equal 'uninitialized constant Bar', e.message
+    refute e.message.match /Kernel::Bar/
 
     Kernel.const_set :Bar, Module.new
     assert_raise NoMethodError do
