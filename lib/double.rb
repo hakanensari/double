@@ -11,7 +11,10 @@ end
 
 module Double
   class Klass < BasicObject
-    extend ::Forwardable
+    Exception   = ::Exception
+    Forwardable = ::Forwardable
+
+    extend Forwardable
 
     def initialize(name)
       @name = name
